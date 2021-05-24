@@ -29,9 +29,7 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.6.2",
     "sequelize-cli": "^6.2.0",
-    "sequelize-typescript": "^2.1.0",
-    "ts-node": "^3.3.0",
-    "typescript": "^2.4.2"
+    "sequelize-typescript": "^2.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
