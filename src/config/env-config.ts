@@ -38,6 +38,8 @@ if (NODE_ENV === 'production') {
 
   if (!DATABASE_URL) throw Error('"DATABASE_URL" missing in the environment');
   const dbConfig = parseDbUrl(DATABASE_URL);
+  // eslint-disable-next-line no-console
+  console.log(dbConfig);
   env = {
     db: {
       name: dbConfig.name,
