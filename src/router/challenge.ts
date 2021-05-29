@@ -5,7 +5,7 @@ import { getPK } from '../service/user-service';
 
 const challengeRouter = Router();
 
-const randomString = (size = 64) => crypto
+const randomString = (size = 20) => crypto
   .randomBytes(size)
   .toString('base64')
   .slice(0, size);
@@ -16,7 +16,7 @@ challengeRouter.get('/', async (req, res) => {
     const { public_key } = await getPK(id);
     const challengeString = randomString(); // randomly generated string
     const encryptedString = crypto.publicEncrypt(
-      sshpk.parseKey(public_key, 'pem').toString('utf8'),
+      `-----BEGIN PUBLIC KEY-----\n${public_key}\n-----END PUBLIC KEY-----`,
       Buffer.from(challengeString),
     );
     res.status(200).json({ challengeString, encryptedString: encryptedString.toString('base64') });
