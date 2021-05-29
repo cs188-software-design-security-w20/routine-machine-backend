@@ -19,7 +19,7 @@ challengeRouter.get('/', async (req, res) => {
       sshpk.parseKey(public_key, 'pem').toString('utf8'),
       Buffer.from(challengeString),
     );
-    res.status(200).json({ challengeString, encryptedString });
+    res.status(200).json({ challengeString, encryptedString: encryptedString.toString('base64') });
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
